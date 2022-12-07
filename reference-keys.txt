@@ -1,0 +1,11 @@
+introduction
+statement-of-problem
+relevance
+literature-review
+methodology
+data
+data-features
+process
+final-analysis
+further-study
+references

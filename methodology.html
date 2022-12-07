@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Methodology | K-Means Clustering</title>
+  <meta name="description" content="2 Methodology | K-Means Clustering" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Methodology | K-Means Clustering" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Methodology | K-Means Clustering" />
+  
+  
+  
+
+<meta name="author" content="Gary Baine, Jaimee Clark, Mario Tobar" />
+
+
+<meta name="date" content="2022-12-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="final-analysis.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">kmc</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#statement-of-problem"><i class="fa fa-check"></i><b>1.1</b> Statement of Problem</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#relevance"><i class="fa fa-check"></i><b>1.2</b> Relevance</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#literature-review"><i class="fa fa-check"></i><b>1.3</b> Literature Review</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="methodology.html"><a href="methodology.html"><i class="fa fa-check"></i><b>2</b> Methodology</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="methodology.html"><a href="methodology.html#data"><i class="fa fa-check"></i><b>2.1</b> Data</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="methodology.html"><a href="methodology.html#data-features"><i class="fa fa-check"></i><b>2.1.1</b> Data Features</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="methodology.html"><a href="methodology.html#process"><i class="fa fa-check"></i><b>2.2</b> Process</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="final-analysis.html"><a href="final-analysis.html"><i class="fa fa-check"></i><b>3</b> Final Analysis</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="final-analysis.html"><a href="final-analysis.html#further-study"><i class="fa fa-check"></i><b>3.1</b> Further Study</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">K-Means Clustering</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="methodology" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Methodology<a href="methodology.html#methodology" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="data" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Data<a href="methodology.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The dataset we are going to be using is from Kaggle. This dataset contains the in-game behaviors for over 1,000 players. There are 19 features from players name to time spent playing the game. Other features include players stats like assists, misses, and scores per minute. The data was collected by using rapid API made By elreco.</p>
+<div id="data-features" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Data Features<a href="methodology.html#data-features" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>name: this is the name for each player</li>
+<li>wins: number of times the player win a match</li>
+<li>kills: number of kills the player made in all his matches</li>
+<li>kdRatio: kill/deaths ratio that means, if a player has 10 kills and 5 deaths, his KD ratio is equal to 2. A KD ratio of 1 means that the player got killed exactly as many times as he successfully eliminated his opponents</li>
+<li>killstreak: kill a number of enemy players without dying.</li>
+<li>level: is the player grade</li>
+<li>losses: total number of losing</li>
+<li>prestige: it is an optional Mode that players can choose after they progress to Level 55 and max</li>
+<li>hits: number of times the player damaged another player</li>
+<li>timePlayed: the time spent by every player playing Call of Duty in hours</li>
+<li>headshots: number of times the player hit the others with head-shots</li>
+<li>averageTime: average time of the game</li>
+<li>gamesPlayed: number of times the player play multiplayer match</li>
+<li>assists: number of times player damaging an enemy but a teammate gets the kill.</li>
+<li>misses: the number of times the player miss the hit</li>
+<li>xp: Experience Points (XP) are a numerical quantity exclusive to multiplayer that dictates a players level and progress in the game.</li>
+<li>scorePerMinute:a measure of how many points players are gaining per unit time.</li>
+<li>shots: number of shots the player did</li>
+<li>deaths: number of time the player gets killed in the game.</li>
+</ul>
+</div>
+</div>
+<div id="process" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Process<a href="methodology.html#process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The coding for this project was done mainly though RStudio. The first step that was taken was creating a heatmap of correlations to see if there are any patterns that immediately stick out.</p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+Now that we have a feel for the data, we see where all the elements lie, we are going to scale the data that way the clustering is not depending on some arbitrary variable unit.</p>
+<p>The first step in the scaling process is to decide how many clusters we want generated in the final output. The k-means algorithm will randomly select k objects from the data to serve as initial centroids. From here, each remaining object is assigned to its closest centroid as measured by Euclidean distance between each object and the cluster mean. After this, the algorithm finds the new mean value for each cluster. Each observation is checked again and reassigned if there is a new closest centroid. This process is repeated until the cluster assignments stop changing. The process by which assignments stop changing is called “convergence”. This process is summarized:</p>
+<ol style="list-style-type: decimal">
+<li>The analyst specifies the number of clusters</li>
+<li>K objects are randomly selected as initial cluster centers</li>
+<li>Each observation is assigned to its closest centroid based on Euclidean distance from the object to the centroid.</li>
+<li>For each k cluster, the centroid is updated after calculating the new mean vale of each data point within the cluster.</li>
+<li>The total within sum of square is minimized by iterating steps 3 and 4 until the cluster assignments stop changing or the max number of iterations is reached. In R, 10 iterations is default, but this can be set by the analyst.</li>
+</ol>
+<pre><code>##         wins      kills    kdRatio killstreak      level     losses   prestige
+## 1 -0.5066566 -0.4732844 -1.4800427 -0.6770346 -0.6354781 -0.7134218 -0.9231212
+## 2 -0.5066566 -0.4732844 -1.4800427 -0.6770346 -0.6354781 -0.7134218  1.2075793
+## 3 -0.5066566 -0.4649613  0.9156540 -0.6770346 -0.5183788 -0.7134218  1.2075793
+## 4 -0.4967223 -0.4730322 -0.5508028 -0.6770346 -0.6354781 -0.7134218 -0.9231212
+## 5 -0.5066566 -0.4730322 -1.0154227 -0.6770346 -0.6354781 -0.7134218  1.2075793
+## 6  1.7583583  2.9330249  0.9981078  1.0903263  1.9407073  0.7139715  1.2075793
+##         hits timePlayed  headshots averageTime gamesPlayed    assists    misses
+## 1 -0.4500367 -0.5417520 -0.4832184  -0.2592984  -0.4552119 -0.4516626 -0.463204
+## 2 -0.4500367 -0.5328482 -0.4832184  -0.1745936  -0.4552119 -0.4516626 -0.463204
+## 3 -0.4500367 -0.5010490 -0.4709593   0.1279233  -0.4552119 -0.4510040 -0.463204
+## 4 -0.4500367 -0.5379361 -0.4832184  -0.2229963  -0.4552119 -0.4516626 -0.463204
+## 5 -0.4500367 -0.5353921 -0.4824522  -0.1987950  -0.4552119 -0.4516626 -0.463204
+## 6  3.8338159  1.1957581  3.4343378  -0.2311869   1.8384839  3.5413989  2.654860
+##           xp scorePerMinute     shots     deaths
+## 1 -0.4859425     -0.9257007 -0.462972 -0.4848692
+## 2 -0.4855527     -0.9257007 -0.462972 -0.4828674
+## 3 -0.4590457     -0.9257007 -0.462972 -0.4768619
+## 4 -0.4853021     -0.9257007 -0.462972 -0.4842436
+## 5 -0.4853856     -0.9257007 -0.462972 -0.4836181
+## 6  1.7038526      1.2684066  2.892926  2.6831599</code></pre>
+<p>We look at 4 different k means calculations using 2, 3, 4, and 5 centroids. While this shows us where different clustering can occur, there is no indication as to what the optimal number of clusters are.</p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>There are a few methods for determining the optimal number of clusters below.</p>
+<p>One of these methods is the Elbow method.<br />
+This method uses the following algorithm:
+1. Vary the amount of clusters, k, and compute the clustering algorithm
+2. Calculate the total within-cluster sum of squares (wss) for each k
+3. Plot the curve of wss based on k
+4. Where the curve “elbows” or bends significantly is indication of the optimal number of clusters to use for the analysis.</p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>From this method, we can see that 2 is the optimal number of clusters.</p>
+<p>The next method is the Silhouette method.
+This method analyzes the quality of clustering, which is to say it determines how well each object fits within its assigned cluster.</p>
+<p>Higher average silhouette widths indicate good clustering.
+Similar to the elbow method, this method varies the value of k and finds the value that maximizes the average silhouette.
+<img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Again, this method returns 2 as the optimal number of clusters for this data.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jaimeedurbs/kmc/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/jaimeedurbs/kmc/blob/master/index.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
