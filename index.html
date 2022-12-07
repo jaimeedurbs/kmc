@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>K-Means Clustering</title>
+  <meta name="description" content="K-Means Clustering" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="K-Means Clustering" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="K-Means Clustering" />
+  
+  
+  
+
+<meta name="author" content="Gary Baine, Jaimee Clark, Mario Tobar" />
+
+
+<meta name="date" content="2022-12-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="methodology.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">kmc</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#statement-of-problem"><i class="fa fa-check"></i><b>1.1</b> Statement of Problem</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#relevance"><i class="fa fa-check"></i><b>1.2</b> Relevance</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#literature-review"><i class="fa fa-check"></i><b>1.3</b> Literature Review</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="methodology.html"><a href="methodology.html"><i class="fa fa-check"></i><b>2</b> Methodology</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="methodology.html"><a href="methodology.html#data"><i class="fa fa-check"></i><b>2.1</b> Data</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="methodology.html"><a href="methodology.html#data-features"><i class="fa fa-check"></i><b>2.1.1</b> Data Features</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="methodology.html"><a href="methodology.html#process"><i class="fa fa-check"></i><b>2.2</b> Process</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="final-analysis.html"><a href="final-analysis.html"><i class="fa fa-check"></i><b>3</b> Final Analysis</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="final-analysis.html"><a href="final-analysis.html#further-study"><i class="fa fa-check"></i><b>3.1</b> Further Study</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">K-Means Clustering</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">K-Means Clustering</h1>
+<p class="author"><em>Gary Baine, Jaimee Clark, Mario Tobar</em></p>
+<p class="date"><em>2022-12-07</em></p>
+</div>
+<div id="introduction" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="statement-of-problem" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Statement of Problem<a href="index.html#statement-of-problem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For some individuals, playing video games is their escape from the real world. There are different kinds of video games, however, for this study we will be looking at a first-person-shooter kind of game: Call of Duty. The goal of this paper is to walk through k-means clustering, break down it’s process and components and show an analysis on a real world dataset.</p>
+</div>
+<div id="relevance" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Relevance<a href="index.html#relevance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The relevance of a players kill/death ratio is almost how “good” a player is. A player with a low k/d is relatively good as they have more kills than deaths. therefore, knowing what makes a player “better” is beneficial for those who want to do better in the games.</p>
+</div>
+<div id="literature-review" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Literature Review<a href="index.html#literature-review" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Clustering algorithms seek hidden patterns in datasets that may exist. These patterns or similarities are then defined as groups or clusters then each cluster gets data points that are similar to that cluster, but different from other clusters. This technique is applied in many applications like pattern recognition and image processing. The k-means clustering algorithm was developed in 1967 by J.B. MacQueen. This algorithm is simple and usually fast, making it a popular algorithm to use. The clusters are each represented by a center point, a centroid. The “centroid” is the center of each cluster that represents that cluster, this centroid is found by an initial value, seed points. Then the k-means calculates the squared distance between the input data points and assigns that value to the centroids. Even though k-means is used a lot, there are limitations, the number of clusters is predetermined, the results of k-means depend on the initials cluster centers and the algorithm contains the dead-unit problem. Since the number of clusters has to be predetermined, knowing about your data is a must so that the proper number of clusters can be determined. The dead-unit problem was pointed-out in the classical k-means algorithm has the so-called dead-unit or under utilization problem (Xu, 1993). Each centre, initialized far away from the input data points, may never win in the process of assigning a data point to the nearest centre, and so it then stays far away from the input data objects, becoming a dead-unit.</p>
+<p>The k-means clustering algorithm has really excelled in the data analyzing world.
+However, a downside to k-means clustering is when it is applied to datasets with data points existing in smaller dimensional spaces than the desired clusters. In the instance this does happen, the k-means algorithm converges with one or more empty clusters or clusters that have summary values of a few data points. The clusters containing little to no data points may be the result of poor local minima thus the approach to handling these clusters is re-running the algorithm. Empty clusters are not always a bad thing, they can be desired as regulars of the cluster models. Using constraints during cluster assignments can ensure sufficient data points in each cluster. The addition of constraints with the k-means algorithm helps to avoid local minima when empty clusters are acceptable. There are many different research options with constrained clustering. Robust clustering is done by adding an outlier cluster that has a high fixed distance that collects outliers.</p>
+<p>Clustering is used in the classification of raw data by grouping the data by hidden patterns that exist within the dataset. This grouping is done so that the clusters contain data that are similar within the cluster but each cluster differs by having different data. K-means clustering is numerical, unsupervised, and non-deterministic. A simple and fast method that is useful in many different applications. K-means clustering is a method that classifies data objects into k different clusters through the iterative, going towards a local minimum. The results of these generated clusters are condensed and separate. The k-means algorithm consists of two separate phases. Phase one selects k random centers, where the value k is set in advance. Phase two takes each data object to the nearest center. The computational complexity of the standard k-means algorithm is arguably high due to reassigning the data points a number of times during every iteration, making the standard k-means clustering less efficient. This paper introduced a simple and more efficient way to reassign data points to clusters. This proposed method establishes the process of clustering data in O(nk) time without having to sacrifice the accuracy of the clusters. The experimental results of the paper showed the improved algorithm can advance the execution time of the k-means algorithm.</p>
+<p>The k-means clustering algorithm is a partitional clustering algorithm that separates data points into k different clusters. The goal of the k-means algorithm is to minimize the intra-cluster spread. This is achieved by choosing a random group of cluster representatives, this group will be considered the center of each cluster. A popular choice of minimizing the k-means function, Lloyds heuristic has been a popular choice. Starting with a set of initial cluster centers randomly chosen from a dataset, each data point is then given to the closest corresponding cluster measured in terms of distance. Each center is then recalculated as the mean of the points assigned to that cluster. This is done until the centers stop changing. Since the k-means algorithm is so simple it is highly chosen among users and can be considered an important pre-processing step in the process of knowledge discovery from data. With the k-means clustering algorithm, the Euclidean distance is the most standard measure used the dissimilarity between data points. This article introduces a new distance measure based on S-divergence calling it the S-distance. They developed an S-k-means algorithm and analyzed the algorithm to prove that there will be convergence to a local optimum. The research in the article proved that the S-k-means algorithm outperformed the Euclidean distance k-means algorithm metric.</p>
+<p>The k-means clustering algorithm was used in this paper to divide data containing electricity data over 12 years. This data comes from Great Britain and were based on the electricity demand and weather conditions nationally, hourly. This data was used to calibrate the overall demand for electricity and wind capacity. The combination of these conditions gives models to calculate the costs of operating patterns to meet each day. Using the k-means clustering algorithm, the data was separated into k-clusters allowing the researchers to model the different impacts of electricity demand and other parameters. They were able to find definite profiles of representation of gross demand, the clusters were able to replicate and produce results with close accuracy.</p>
+<p>The Article begins by explaining the Global K - Means Clustering algorithm. This algorithm is used on a dataset in which we are interested in finding groups of data that when can give them some type of distinction from that group of the data, to another group of the data. It is interesting because previously, the data would be just randomized in a non-specific order that would almost appear random. This algorithm is used in iterations meaning, it does not come with the answer right away.</p>
+<p>The article goes further into how the K-Means Clustering algorithm can be improved if added a few tweaks. The “Fast K-Means Clustering Algorithm” is an advanced way of providing the clusters with our algorithm. Instead of finding convergence in our iterations, meaning by completing multiple iterations, we come to a result that best fits our needs or logic. This new method would propose using bounds almost like a confidence interval for our clusters. This allows for errors to be accepted and included in our final result. It is then compared with a point to minimize the error as much as possible. Another solution to the efficiency of this algorithm is to restrict the starting positions for these clusters.</p>
+<p>The next approach to take to speed up the K-Means Clustering Algorithm is to create generalized K-d trees. These trees will have nodes that have a portion of the data space. The idea here is to cut the bucket size of possible starting points in order to gain more information on which direction it would be moving to in each iteration. The K-d structure is also used for speeding up distance-based searches or range queries.</p>
+<p>After these 2 proposals, the article goes in on some experimental data as they go on to discuss the differences between using the different algorithms. After using those algorithms it is found that the clusters were able to be found faster and more accurately just like the Global K-Means Clustering Algorithm. This is a good sign showing that the algorithms have room for improvement and we can find suitable results for efficient algorithms.</p>
+<p>This article talks about how K-Means Clustering is used with unsupervised data. Unsupervised data means that the data has an unspecified pattern or clusters that our algorithms have the possibility in searching for distinctions or patterns based on different criteria. The article raises one question which is entertaining. What happens if we have some type of background knowledge of the data? Realistically, data scientists would generally have a good amount of knowledge of the data that they would be analyzing or deciphering.</p>
+<p>The first step in doing so is providing Constraints. Constraints in the data allow you to have multiple points in the data in which a cluster may not be formed with both points in it. This creates a transitive binary relation over the instances in which the points could be in the same cluster. The algorithm takes a dataset, a set of Must-Link Constraints, and a list of Cannot-Link Constraints. This method would require you to specify the number of clusters but allow that so the constraints could never be broken. Thus a faster way of gaining information on which data points belong in each cluster.</p>
+<p>To evaluate whether this method would work, the author wrote that they were able to have a dataset where there is a correct cluster that the data point belongs to. They use the Rand index for measurement as it has two partitions which are the algorithm group and the correct group. From there, they would hold out another evaluation using the 10-fold cross-validation to see if there is any learning that this algorithm is doing.</p>
+<p>The first experiment they used was is artificial constraints. There are graphs that are associated with 6 datasets that are well known and the graphs show the accuracy of the algorithm as more constraints are added. As we look through each graph, the more constraints that were added, the more accurate the algorithm was.</p>
+<p>The next experimental results were for GPS Lane finding which is the issue of having digital road maps being too general and making them more specific to lanes rather than just having roads. Their theory is that since drivers are bound to drive within lane boundaries, lanes could over time correspond to densely traveled regions. The idea is to take data about cars traveling, and the ability to figure out which lane they are in by putting them into a cluster automatically.</p>
+<p>After reviewing the table generated by the accuracy between normal K-Means, Constraint K-Means, and then Constrains alone, it is obvious that the Constraint K-Means proves superior as it was 98% accurate in telling which lane the driver was in.</p>
+<p>While there is more to learn, it is obvious that if we are able to provide some constraint figures, we are able to help our algorithm out by placing constraints on certain data points by having the correct background knowledge on our data.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="methodology.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jaimeedurbs/kmc/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/jaimeedurbs/kmc/blob/master/index.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

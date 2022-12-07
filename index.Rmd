@@ -1,0 +1,269 @@
+--- 
+title: "K-Means Clustering"
+author: "Gary Baine, Jaimee Clark, Mario Tobar"
+date: "`r Sys.Date()`"
+self contained: true
+site: bookdown::bookdown_site
+---
+
+
+
+# Introduction
+
+## Statement of Problem
+
+For some individuals, playing video games is their escape from the real world. There are different kinds of video games, however, for this study we will be looking at a first-person-shooter kind of game: Call of Duty. The goal of this paper is to walk through k-means clustering, break down it’s process and components and show an analysis on a real world dataset.
+
+## Relevance 
+
+The relevance of a players kill/death ratio is almost how "good" a player is. A player with a low k/d is relatively good as they have more kills than deaths. therefore, knowing what makes a player "better" is beneficial for those who want to do better in the games.  
+
+## Literature Review
+
+  Clustering algorithms seek hidden patterns in datasets that may exist. These patterns or similarities are then defined as groups or clusters then each cluster gets data points that are similar to that cluster, but different from other clusters. This technique is applied in many applications like pattern recognition and image processing. The k-means clustering algorithm was developed in 1967 by J.B. MacQueen. This algorithm is simple and usually fast, making it a popular algorithm to use. The clusters are each represented by a center point, a centroid. The "centroid" is the center of each cluster that represents that cluster, this centroid is found by an initial value, seed points. Then the k-means calculates the squared distance between the input data points and assigns that value to the centroids. Even though k-means is used a lot, there are limitations, the number of clusters is predetermined, the results of k-means depend on the initials cluster centers and the algorithm contains the dead-unit problem. Since the number of clusters has to be predetermined, knowing about your data is a must so that the proper number of clusters can be determined. The dead-unit problem was pointed-out in the classical k-means algorithm has the so-called dead-unit or under utilization problem (Xu, 1993). Each centre, initialized far away from the input data points, may never win in the process of assigning a data point to the nearest centre, and so it then stays far away from the input data objects, becoming a dead-unit.
+
+  The k-means clustering algorithm has really excelled in the data analyzing world. 
+However, a downside to k-means clustering is when it is applied to datasets with data points existing in smaller dimensional spaces than the desired clusters. In the instance this does happen, the k-means algorithm converges with one or more empty clusters or clusters that have summary values of a few data points. The clusters containing little to no data points may be the result of poor local minima thus the approach to handling these clusters is re-running the algorithm. Empty clusters are not always a bad thing, they can be desired as regulars of the cluster models. Using constraints during cluster assignments can ensure sufficient data points in each cluster. The addition of constraints with the k-means algorithm helps to avoid local minima when empty clusters are acceptable. There are many different research options with constrained clustering. Robust clustering is done by adding an outlier cluster that has a high fixed distance that collects outliers. 
+
+  Clustering is used in the classification of raw data by grouping the data by hidden patterns that exist within the dataset. This grouping is done so that the clusters contain data that are similar within the cluster but each cluster differs by having different data. K-means clustering is numerical, unsupervised, and non-deterministic. A simple and fast method that is useful in many different applications. K-means clustering is a method that classifies data objects into k different clusters through the iterative, going towards a local minimum. The results of these generated clusters are condensed and separate. The k-means algorithm consists of two separate phases. Phase one selects k random centers, where the value k is set in advance. Phase two takes each data object to the nearest center. The computational complexity of the standard k-means algorithm is arguably high due to reassigning the data points a number of times during every iteration, making the standard k-means clustering less efficient. This paper introduced a simple and more efficient way to reassign data points to clusters. This proposed method establishes the process of clustering data in O(nk) time without having to sacrifice the accuracy of the clusters. The experimental results of the paper showed the improved algorithm can advance the execution time of the k-means algorithm. 
+
+  The k-means clustering algorithm is a partitional clustering algorithm that separates data points into k different clusters. The goal of the k-means algorithm is to minimize the intra-cluster spread. This is achieved by choosing a random group of cluster representatives, this group will be considered the center of each cluster. A popular choice of minimizing the k-means function, Lloyds heuristic has been a popular choice. Starting with a set of initial cluster centers randomly chosen from a dataset, each data point is then given to the closest corresponding cluster measured in terms of distance. Each center is then recalculated as the mean of the points assigned to that cluster. This is done until the centers stop changing. Since the k-means algorithm is so simple it is highly chosen among users and can be considered an important pre-processing step in the process of knowledge discovery from data. With the k-means clustering algorithm, the Euclidean distance is the most standard measure used the dissimilarity between data points. This article introduces a new distance measure based on S-divergence calling it the S-distance. They developed an S-k-means algorithm and analyzed the algorithm to prove that there will be convergence to a local optimum. The research in the article proved that the S-k-means algorithm outperformed the Euclidean distance k-means algorithm metric. 
+
+  The k-means clustering algorithm was used in this paper to divide data containing electricity data over 12 years. This data comes from Great Britain and were based on the electricity demand and weather conditions nationally, hourly. This data was used to calibrate the overall demand for electricity and wind capacity. The combination of these conditions gives models to calculate the costs of operating patterns to meet each day. Using the k-means clustering algorithm, the data was separated into k-clusters allowing the researchers to model the different impacts of electricity demand and other parameters. They were able to find definite profiles of representation of gross demand, the clusters were able to replicate and produce results with close accuracy. 
+    
+  The Article begins by explaining the Global K - Means Clustering algorithm. This algorithm is used on a dataset in which we are interested in finding groups of data that when can give them some type of distinction from that group of the data, to another group of the data. It is interesting because previously, the data would be just randomized in a non-specific order that would almost appear random. This algorithm is used in iterations meaning, it does not come with the answer right away. 
+
+The article goes further into how the K-Means Clustering algorithm can be improved if added a few tweaks. The “Fast K-Means Clustering Algorithm” is an advanced way of providing the clusters with our algorithm. Instead of finding convergence in our iterations, meaning by completing multiple iterations, we come to a result that best fits our needs or logic. This new method would propose using bounds almost like a confidence interval for our clusters. This allows for errors to be accepted and included in our final result. It is then compared with a point to minimize the error as much as possible. Another solution to the efficiency of this algorithm is to restrict the starting positions for these clusters. 
+
+The next approach to take to speed up the K-Means Clustering Algorithm is to create generalized K-d trees. These trees will have nodes that have a portion of the data space. The idea here is to cut the bucket size of possible starting points in order to gain more information on which direction it would be moving to in each iteration. The K-d structure is also used for speeding up distance-based searches or range queries. 
+
+After these 2 proposals, the article goes in on some experimental data as they go on to discuss the differences between using the different algorithms. After using those algorithms it is found that the clusters were able to be found faster and more accurately just like the Global K-Means Clustering Algorithm. This is a good sign showing that the algorithms have room for improvement and we can find suitable results for efficient algorithms.
+
+  This article talks about how K-Means Clustering is used with unsupervised data. Unsupervised data means that the data has an unspecified pattern or clusters that our algorithms have the possibility in searching for distinctions or patterns based on different criteria. The article raises one question which is entertaining. What happens if we have some type of background knowledge of the data? Realistically, data scientists would generally have a good amount of knowledge of the data that they would be analyzing or deciphering. 
+
+The first step in doing so is providing Constraints. Constraints in the data allow you to have multiple points in the data in which a cluster may not be formed with both points in it. This creates a transitive binary relation over the instances in which the points could be in the same cluster. The algorithm takes a dataset, a set of Must-Link Constraints, and a list of Cannot-Link Constraints. This method would require you to specify the number of clusters but allow that so the constraints could never be broken. Thus a faster way of gaining information on which data points belong in each cluster. 
+
+To evaluate whether this method would work, the author wrote that they were able to have a dataset where there is a correct cluster that the data point belongs to. They use the Rand index for measurement as it has two partitions which are the algorithm group and the correct group. From there, they would hold out another evaluation using the 10-fold cross-validation to see if there is any learning that this algorithm is doing. 
+
+The first experiment they used was is artificial constraints. There are graphs that are associated with 6 datasets that are well known and the graphs show the accuracy of the algorithm as more constraints are added. As we look through each graph, the more constraints that were added, the more accurate the algorithm was. 
+
+The next experimental results were for GPS Lane finding which is the issue of having digital road maps being too general and making them more specific to lanes rather than just having roads. Their theory is that since drivers are bound to drive within lane boundaries, lanes could over time correspond to densely traveled regions. The idea is to take data about cars traveling, and the ability to figure out which lane they are in by putting them into a cluster automatically. 
+
+After reviewing the table generated by the accuracy between normal K-Means, Constraint K-Means, and then Constrains alone, it is obvious that the Constraint K-Means proves superior as it was 98% accurate in telling which lane the driver was in. 
+
+While there is more to learn, it is obvious that if we are able to provide some constraint figures, we are able to help our algorithm out by placing constraints on certain data points by having the correct background knowledge on our data. 
+
+
+
+# Methodology
+
+## Data
+
+The dataset we are going to be using is from Kaggle. This dataset contains the in-game behaviors for over 1,000 players. There are 19 features from players name to time spent playing the game. Other features include players stats like assists, misses, and scores per minute. The data was collected by using rapid API made By elreco. 
+
+### Data Features
++ name: this is the name for each player
++ wins: number of times the player win a match
++ kills: number of kills the player made in all his matches
++ kdRatio: kill/deaths ratio that means, if a player has 10 kills and 5 deaths, his KD ratio is equal to 2. A KD ratio of 1 means that the player got killed exactly as many times as he successfully eliminated his opponents
++ killstreak: kill a number of enemy players without dying.
++ level: is the player grade
++ losses: total number of losing
++ prestige: it is an optional Mode that players can choose after they progress to Level 55 and max
++ hits: number of times the player damaged another player
++ timePlayed: the time spent by every player playing Call of Duty in hours
++ headshots: number of times the player hit the others with head-shots
++ averageTime: average time of the game
++ gamesPlayed: number of times the player play multiplayer match
++ assists: number of times player damaging an enemy but a teammate gets the kill.
++ misses: the number of times the player miss the hit
++ xp: Experience Points (XP) are a numerical quantity exclusive to multiplayer that dictates a players level and progress in the game.
++ scorePerMinute:a measure of how many points players are gaining per unit time.
++ shots: number of shots the player did
++ deaths: number of time the player gets killed in the game.
+
+## Process
+
+The coding for this project was done mainly though RStudio. The first step that was taken was creating a heatmap of correlations to see if there are any patterns that immediately stick out. 
+```{r, include=FALSE}
+library(factoextra)
+library(tidyverse)
+library(ggpubr)
+library(gridExtra)
+library(cluster)
+library(reshape2)
+
+head(read.csv("cod.csv"))
+
+df <- read.csv("cod.csv")
+df <- df[,-1]
+df <- na.omit(df)
+
+cormat <- round(cor(df), 2)
+head(cormat)
+
+reorder_cormat <- function(cormat){
+  # Use correlation between variables as distance
+  dd <- as.dist((1-cormat)/2)
+  hc <- hclust(dd)
+  cormat <-cormat[hc$order, hc$order]
+}
+
+# Get lower triangle of the correlation matrix
+get_lower_tri<-function(cormat){
+  cormat[upper.tri(cormat)] <- NA
+  return(cormat)
+}
+# Get upper triangle of the correlation matrix
+get_upper_tri <- function(cormat){
+  cormat[lower.tri(cormat)]<- NA
+  return(cormat)
+}
+
+# Reorder the correlation matrix
+cormat <- reorder_cormat(cormat)
+upper_tri <- get_upper_tri(cormat)
+
+# Melt the correlation matrix
+melted_cormat <- melt(upper_tri, na.rm = TRUE)
+
+# Create a ggheatmap
+ggheatmap <- ggplot(melted_cormat, aes(Var2, Var1, fill = value))+
+  geom_tile(color = "white")+
+  scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
+                       midpoint = 0, limit = c(-1,1), space = "Lab", 
+                       name="Pearson\nCorrelation") +
+  theme_minimal()+ # minimal theme
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, 
+                                   size = 12, hjust = 1))+
+  coord_fixed()
+```
+
+```{r, echo=FALSE}
+ggheatmap + 
+  geom_text(aes(Var2, Var1, label = value), color = "black", size = 1.75) +
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank(),
+    axis.ticks = element_blank(),
+    legend.justification = c(1, 0),
+    legend.position = c(0.6, 0.7),
+    legend.direction = "horizontal")+
+  guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
+                               title.position = "top", title.hjust = 0.5))
+```
+Now that we have a feel for the data, we see where all the elements lie, we are going to scale the data that way the clustering is not depending on some arbitrary variable unit. 
+
+The first step in the scaling process is to decide how many clusters we want generated in the final output. The k-means algorithm will randomly select k objects from the data to serve as initial centroids. From here, each remaining object is assigned to its closest centroid as measured by Euclidean distance between each object and the cluster mean. After this, the algorithm finds the new mean value for each cluster. Each observation is checked again and reassigned if there is a new closest centroid. This process is repeated until the cluster assignments stop changing. The process by which assignments stop changing is called "convergence". This process is summarized:
+
+1. The analyst specifies the number of clusters
+2. K objects are randomly selected as initial cluster centers
+3. Each observation is assigned to its closest centroid based on Euclidean distance from the object to the centroid.
+4. For each k cluster, the centroid is updated after calculating the new mean vale of each data point within the cluster.
+5. The total within sum of square is minimized by iterating steps 3 and 4 until the cluster assignments stop changing or the max number of iterations is reached. In R, 10 iterations is default, but this can be set by the analyst.
+
+```{r, echo=FALSE}
+data <- scale(df)
+head(data)
+
+k2 <- kmeans(data, centers = 2, nstart = 25)
+k3 <- kmeans(data, centers = 3, nstart = 25)
+k4 <- kmeans(data, centers = 4, nstart = 25)
+k5 <- kmeans(data, centers = 5, nstart = 25)
+
+p1 <- fviz_cluster(k2, geom = "point", data = data) + ggtitle("k = 2")
+p2 <- fviz_cluster(k3, geom = "point", data = data) + ggtitle("k = 3")
+p3 <- fviz_cluster(k4, geom = "point", data = data) + ggtitle("k = 4")
+p4 <- fviz_cluster(k5, geom = "point", data = data) + ggtitle("k = 5")
+```
+
+We look at 4 different k means calculations using 2, 3, 4, and 5 centroids. While this shows us where different clustering can occur, there is no indication as to what the optimal number of clusters are.
+
+```{r, echo=FALSE}
+grid.arrange(p1, p2, p3, p4, nrow = 2) 
+```
+
+There are a few methods for determining the optimal number of clusters below.
+
+One of these methods is the Elbow method.  
+This method uses the following algorithm:
+1. Vary the amount of clusters, k, and compute the clustering algorithm
+2. Calculate the total within-cluster sum of squares (wss) for each k
+3. Plot the curve of wss based on k
+4. Where the curve "elbows" or bends significantly is indication of the optimal number of clusters to use for the analysis.
+
+```{r, echo=FALSE}
+set.seed(123)
+
+fviz_nbclust(data, kmeans, method = "wss") +
+  geom_vline(xintercept = 2, linetype = 2)
+
+```
+
+From this method, we can see that 2 is the optimal number of clusters.
+
+The next method is the Silhouette method.
+This method analyzes the quality of clustering, which is to say it determines how well each object fits within its assigned cluster.
+
+Higher average silhouette widths indicate good clustering.
+Similar to the elbow method, this method varies the value of k and finds the value that maximizes the average silhouette.
+```{r, echo=FALSE}
+fviz_nbclust(data, kmeans, method = "silhouette")
+```
+
+Again, this method returns 2 as the optimal number of clusters for this data.
+
+# Final Analysis
+
+```{r, include=FALSE}
+set.seed(123)
+final <- kmeans(data, 2, nstart = 25)
+print(final)
+```
+
+```{r, echo=FALSE}
+fviz_cluster(final, data = data)
+
+df %>%
+  mutate(Cluster = final$cluster) %>%
+  group_by(Cluster) %>%
+  summarise_all("mean")
+```
+In cluster 1, the average number of wins is 59.2 and for cluster 2 it is 755 and so forth.
+Essentially,  these are the differences between a "bad" (cluster 1) player and a "good" (cluster 2) player
+adding a 3rd cluster would allow us to categorize an "average" player, but probably not the best practice as the optimal cluster value is 2
+
+## Further Study
+
+This analysis is sort of the big picture analysis, there could be a deeper dive into which metrics are most important for determining a player's goodness. 
+
+
+# References
+
+Abdullah D, Susilo S, Ahmar AS, Rusli R, Hidayat R. The application of K-means clustering for province clustering in Indonesia of the risk of the COVID-19 pandemic based on COVID-19 data. Qual Quant. 2022;56(3):1283-1291. doi: 10.1007/s11135-021-01176-w. Epub 2021 Jun 3. PMID: 34103768; PMCID: PMC8173859.
+
+Ahmed, Mohiuddin, Raihan Seraj, and Syed Mohammed Shamsul Islam. 2020. "The k-means Algorithm: A Comprehensive Survey and Performance Evaluation" Electronics 9, no. 8: 1295. https://doi.org/10.3390/electronics9081295
+
+Bradley, P. S., Bennett, K. P., & Demiriz, A. (n.d.). Constrained K-Means Clustering. 
+
+Chakraborty, & Das, S. (2017). k−Means clustering with a new divergence-based distance metric: Convergence and performance analysis. Pattern Recognition Letters, 100, 67–73. https://doi-org.ezproxy.lib.uwf.edu/10.1016/j.patrec.2017.09.025
+
+Green, Staffell, I., & Vasilakos, N. (2014). Divide and Conquer? -Means Clustering of Demand Data Allows Rapid and Accurate Simulations of the British Electricity System. IEEE Transactions on Engineering Management, 61(2), 251–260. https://doi-org.ezproxy.lib.uwf.edu/10.1109/TEM.2013.2284386
+
+Guevara-Viejó F, Valenzuela-Cobos JD, Vicente-Galindo P, Galindo-Villardón P. Application of K-Means Clustering Algorithm to Commercial Parameters of Pleurotus spp. Cultivated on Representative Agricultural Wastes from Province of Guayas. J Fungi (Basel). 2021 Jul 4;7(7):537. doi: 10.3390/jof7070537. PMID: 34356916; PMCID: PMC8304144.
+
+Na, S., Xumin, L., & Yong, G. (2010). Research on K-means clustering algorithm: An improved K-means clustering algorithm. 2010 Third International Symposium on Intelligent Information Technology and Security Informatics. https://doi.org/10.1109/iitsi.2010.74 
+
+Sreedhar, C., Kasiviswanath, N. & Chenna Reddy, P. Clustering large datasets using K-means modified inter and intra clustering (KM-I2C) in Hadoop. J Big Data 4, 27 (2017). https://doi.org/10.1186/s40537-017-0087-2
+
+Zakharov, K. (2016). Application of K-means clustering in psychological studies. The Quantitative Methods for Psychology, 12(2), 87–100. https://doi.org/10.20982/tqmp.12.2.p087 
+
+
+Žalik, K. R. (2008). An efficient K′-means clustering algorithm. Pattern Recognition Letters, 29(9), 1385–1391. https://doi.org/10.1016/j.patrec.2008.02.014 
+
+
+
+
